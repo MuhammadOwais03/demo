@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import DrawerContent from "../DrawerContent/DrawerContent";
 
-const Drawer = ({toggleDrawer}) => {
+const Drawer = ({
+  toggleDrawer,
+  closeDrawer,
+  dataToDrawer,
+  openCategory,
+  setOpenCategory,
+  selectedCategoryName,
+  setSelectedCategoryName,
+  setSelectedCategory,
+  selectedCategory
+}) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [leftPosition, setLeftPosition] = useState("left-0");
 
@@ -12,67 +22,63 @@ const Drawer = ({toggleDrawer}) => {
     return () => window.removeEventListener("resize", handleResize); // Cleanup event listener
   }, []);
 
-
   useEffect(() => {
-
     const drawer = document.getElementById("drawer-disabled-backdrop");
-    if (drawer.style.transform === "translateX(180%)" || drawer.style.transform === "translateX(100%)") { 
-        
-        drawer.style.transform = "translateX(-100%)";
-        return;
-      }
-      if (screenWidth < 768) {
-        console.log(screenWidth, "idk")
-      setLeftPosition("left-0");
-      
-
+    if (
+      drawer.style.transform === "translateX(120%)" ||
+      drawer.style.transform === "translateX(100%)"
+    ) {
+      drawer.style.transform = "translateX(-100%)";
+      return;
     }
-    
-        
-
+    if (screenWidth < 768) {
+      console.log(screenWidth, "idk");
+      setLeftPosition("left-0");
+    }
   }, [screenWidth]);
 
-//   const toggleDrawer = () => {
-//     const drawer = document.getElementById("drawer-disabled-backdrop");
-//     if (!drawer) return;
-
-//     if (screenWidth > 768) {
-//         if (drawer.style.transform === "translateX(200px)") {
-//           console.log("closing drawer");
-//           drawer.style.transform = "translateX(-100%)";
-//         } else {
-//           console.log("opening drawer");
-//           drawer.style.transform = "translateX(200px)";
-//         }
-//     } else {
-//         if (drawer.style.transform === "translateX(0px)") {
-//             console.log("closing drawer");
-//             drawer.style.transform = "translateX(-100%)";
-//         } else {
-//             console.log("opening drawer");
-//             drawer.style.transform = "translateX(0px)";
-//         }
-//     }
-//   };
+  
 
   return (
     <>
       <>
-        
         {/* drawer component */}
         <div
           id="drawer-disabled-backdrop"
-          className={`fixed top-0 ${leftPosition} z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-full md:w-64 dark:bg-gray-800 pt-[7rem]`}
+          className={` fixed top-0 ${leftPosition} z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full  w-full md:w-[700px] bg-white dark:bg-gray-800 pt-[7rem]`}
           tabIndex={-1}
           aria-labelledby="drawer-disabled-backdrop-label"
         >
-          
+          <div class="fixed md:hidden top-14 z-50 w-full h-16 max-w-lg -translate-x-1/2  bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+            <div class="flex flex-row gap-5 justify-center items-center h-full max-w-lg grid-cols-5 mx-auto">
+              
+              
+              {["Women", "Men", "Kids"].map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  className={`inline-flex flex-col items-center justify-center px-3  hover:bg-gray-50 dark:hover:bg-gray-800 group text-sm
+            ${
+              selectedCategory === category
+                ? "border-b-2"
+                : "text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700"
+            }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+              
+              
+            </div>
+          </div>
+
           <button
             type="button"
             data-drawer-hide="drawer-disabled-backdrop"
             aria-controls="drawer-disabled-backdrop"
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-15 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white "
-            onClick={()=>toggleDrawer(screenWidth)}
+            onClick={() => closeDrawer()}
           >
             <svg
               className="w-3 h-3"
@@ -91,7 +97,13 @@ const Drawer = ({toggleDrawer}) => {
             </svg>
             <span className="sr-only">Close menu</span>
           </button>
-          <DrawerContent />
+          <DrawerContent
+            categoryData={dataToDrawer}
+            openCategory={openCategory}
+            setOpenCategory={setOpenCategory}
+            selectedCategoryName={selectedCategoryName}
+            setSelectedCategoryName={setSelectedCategoryName}
+          />
         </div>
       </>
     </>

@@ -1,22 +1,30 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-const Sidebar = ({toggleDrawer}) => {
-
+const Sidebar = ({
+  toggleDrawer,
+  setDrawerOpen,
+  drawerOpen,
+  setSelectedCategory,
+  setSelectedSubCategory,
+  selectedCategory
+}) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  
-    useEffect(() => {
-      const handleResize = () => setScreenWidth(window.innerWidth);
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize); // Cleanup event listener
-    }, []);
-  
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize); // Cleanup event listener
+  }, []);
 
   return (
     <>
       <>
         {/* Sidebar Container */}
-        <div className=" hidden md:block max-w-[200px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-sm" style={{borderRight: '2px solid #F2F3F5'}}>
+        <div
+          className=" hidden md:block max-w-[200px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-sm"
+          style={{ borderRight: "2px solid #F2F3F5" }}
+        >
           <nav className="flex flex-col justify-between h-full">
             {/* Main Links */}
             <div className="flex flex-col space-y-[1rem]">
@@ -25,7 +33,10 @@ const Sidebar = ({toggleDrawer}) => {
               </a>
               {/* Dropdown: Women */}
               <div className="group">
-                <button className="flex justify-between w-full text-gray-900">
+                <button
+                  className="flex justify-between w-full text-gray-900"
+                  onMouseOver={() => setSelectedCategory("Women")}
+                >
                   Women
                   <svg
                     className="w-4 h-4 transform group-hover:rotate-180 transition"
@@ -43,13 +54,34 @@ const Sidebar = ({toggleDrawer}) => {
                   </svg>
                 </button>
                 <div className="hidden group-hover:block pl-4 mt-1 space-y-[1rem] pt-2 pb-2">
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Dresses
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Clothing");
+                    }}
+                  >
+                    Clothing
                   </a>
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Shoes
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Footwear");
+                    }}
+                  >
+                    Footwear
                   </a>
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Accessories");
+                    }}
+                  >
                     Accessories
                   </a>
                 </div>
@@ -60,6 +92,7 @@ const Sidebar = ({toggleDrawer}) => {
                   id="menDropdownButton"
                   data-dropdown-toggle="menDropdown"
                   className="flex justify-between w-full text-gray-900"
+                  onMouseOver={() => setSelectedCategory("Men")}
                 >
                   Men
                   <svg
@@ -79,20 +112,44 @@ const Sidebar = ({toggleDrawer}) => {
                   </svg>
                 </button>
                 <div id="accordion" className="hidden pl-4 mt-1 space-y-1">
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Shirts
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Clothing");
+                    }}
+                  >
+                    Clothing
                   </a>
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Shoes
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Accessories");
+                    }}
+                  >
+                    Accessories
                   </a>
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Watches
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Footwear");
+                    }}
+                  >
+                    Footwear
                   </a>
                 </div>
               </div>
               {/* Dropdown: Kids */}
               <div className="group">
-                <button className="flex justify-between w-full text-gray-900">
+                <button
+                  className="flex justify-between w-full text-gray-900"
+                  onMouseOver={() => setSelectedCategory("Kids")}
+                >
                   Kids
                   <svg
                     className="w-4 h-4 transform group-hover:rotate-180 transition"
@@ -110,11 +167,25 @@ const Sidebar = ({toggleDrawer}) => {
                   </svg>
                 </button>
                 <div className="hidden group-hover:block pl-4 mt-1 space-y-[1rem] pt-2 pb-2">
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Toys
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Boys");
+                    }}
+                  >
+                    Boys
                   </a>
-                  <a href="#" className="block text-gray-600" onClick={() => toggleDrawer(screenWidth)}>
-                    Clothing
+                  <a
+                    href="#"
+                    className="block text-gray-600"
+                    onClick={() => {
+                      toggleDrawer(screenWidth);
+                      setSelectedSubCategory("Girls");
+                    }}
+                  >
+                    Girls
                   </a>
                 </div>
               </div>
@@ -156,33 +227,41 @@ const Sidebar = ({toggleDrawer}) => {
         <div className="md:hidden fixed bottom-0 z-50 w-full -translate-x-1/2 bg-white border-t left-1/2 border-gray-200  dark:bg-gray-700 dark:border-gray-600 rounded-2xl">
           <div className="w-full border-b border-gray-200 dark:border-gray-600 rounded-2xl">
             <div
-              className="grid max-w-xs grid-cols-4 gap-1 p-1 mx-auto my-2 bg-gray-100 rounded-2xl dark:bg-gray-600"
+              className="grid max-w-xs grid-cols-3 gap-1 p-1 mx-auto my-2 bg-gray-100 rounded-2xl dark:bg-gray-600"
               role="group"
             >
-              <button
-                type="button"
-                className=" py-1.5 text-xs font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg"
-              >
-                All
-              </button>
-              <button
+              {/* <button
                 type="button"
                 className="text-center py-1.5 text-xs font-medium text-white bg-gray-900 dark:bg-gray-300 dark:text-gray-900 rounded-lg"
+                onClick={()=>setSelectedCategory('Women')}
               >
                 Womens
               </button>
               <button
                 type="button"
                 className=" py-1.5 text-xs font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg"
+                onClick={()=>setSelectedCategory('Men')}
               >
                 Mens
               </button>
               <button
                 type="button"
                 className="py-1.5 text-xs font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg"
+                onClick={()=>setSelectedCategory('Kids')}
               >
                 Kids
-              </button>
+              </button> */}
+              {["Women", "Men", "Kids"].map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  className={`py-1.5 text-xs font-medium rounded-lg transition-colors 
+            `}
+                  // onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
           </div>
           <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
@@ -190,7 +269,6 @@ const Sidebar = ({toggleDrawer}) => {
               data-tooltip-target="tooltip-home"
               type="button"
               className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
-              
             >
               <svg
                 data-v-50dfb386=""
@@ -205,9 +283,11 @@ const Sidebar = ({toggleDrawer}) => {
                 </g>
               </svg>
               <span className="sr-only">Home</span>
-              <span data-v-50dfb386="" class="nav-button-text text-[10px]">Home</span>
+              <span data-v-50dfb386="" class="nav-button-text text-[10px]">
+                Home
+              </span>
             </button>
-            
+
             <button
               data-tooltip-target="tooltip-bookmark"
               type="button"
@@ -227,9 +307,11 @@ const Sidebar = ({toggleDrawer}) => {
                 </g>
               </svg>
               <span className="sr-only">Category</span>
-              <span data-v-50dfb386="" class="nav-button-text text-[10px]">Category</span>
+              <span data-v-50dfb386="" class="nav-button-text text-[10px]">
+                Category
+              </span>
             </button>
-            
+
             <button
               data-tooltip-target="tooltip-post"
               type="button"
@@ -249,18 +331,33 @@ const Sidebar = ({toggleDrawer}) => {
                 </g>
               </svg>
               <span className="sr-only">Brand</span>
-              <span data-v-50dfb386="" class="nav-button-text text-[10px]">Brand</span>
+              <span data-v-50dfb386="" class="nav-button-text text-[10px]">
+                Brand
+              </span>
             </button>
-            
+
             <button
               data-tooltip-target="tooltip-search"
               type="button"
               className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
             >
-              <svg data-v-50dfb386="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor"><g><path d="M223,57a58.07,58.07,0,0,0-81.92-.1L128,69.05,114.91,56.86A58,58,0,0,0,33,139l89.35,90.66a8,8,0,0,0,11.4,0L223,139a58,58,0,0,0,0-82Zm-11.35,70.76L128,212.6,44.3,127.68a42,42,0,0,1,59.4-59.4l.2.2,18.65,17.35a8,8,0,0,0,10.9,0L152.1,68.48l.2-.2a42,42,0,1,1,59.36,59.44Z"></path></g></svg>
-              <span data-v-50dfb386="" class="nav-button-text text-[10px]">Wishlist</span>
+              <svg
+                data-v-50dfb386=""
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                width="24"
+                height="24"
+                fill="currentColor"
+              >
+                <g>
+                  <path d="M223,57a58.07,58.07,0,0,0-81.92-.1L128,69.05,114.91,56.86A58,58,0,0,0,33,139l89.35,90.66a8,8,0,0,0,11.4,0L223,139a58,58,0,0,0,0-82Zm-11.35,70.76L128,212.6,44.3,127.68a42,42,0,0,1,59.4-59.4l.2.2,18.65,17.35a8,8,0,0,0,10.9,0L152.1,68.48l.2-.2a42,42,0,1,1,59.36,59.44Z"></path>
+                </g>
+              </svg>
+              <span data-v-50dfb386="" class="nav-button-text text-[10px]">
+                Wishlist
+              </span>
             </button>
-            
+
             <button
               data-tooltip-target="tooltip-settings"
               type="button"
@@ -280,9 +377,10 @@ const Sidebar = ({toggleDrawer}) => {
                 </g>
               </svg>
               <span className="sr-only">Account</span>
-              <span data-v-50dfb386="" class="nav-button-text text-[10px]">Account</span>
+              <span data-v-50dfb386="" class="nav-button-text text-[10px]">
+                Account
+              </span>
             </button>
-            
           </div>
         </div>
       </>
