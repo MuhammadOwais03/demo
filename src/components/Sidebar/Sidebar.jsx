@@ -225,32 +225,12 @@ const Sidebar = ({
         </div>
         {/* Mobile Responsive for sidebar  */}
         <div className="md:hidden fixed bottom-0 z-50 w-full -translate-x-1/2 bg-white border-t left-1/2 border-gray-200  dark:bg-gray-700 dark:border-gray-600 rounded-2xl">
-          <div className="w-full border-b border-gray-200 dark:border-gray-600 rounded-2xl">
+          <div className={` ${drawerOpen?"hidden":"block"} w-full border-b border-gray-200 dark:border-gray-600 rounded-2xl`}>
             <div
               className="grid max-w-xs grid-cols-3 gap-1 p-1 mx-auto my-2 bg-gray-100 rounded-2xl dark:bg-gray-600"
               role="group"
             >
-              {/* <button
-                type="button"
-                className="text-center py-1.5 text-xs font-medium text-white bg-gray-900 dark:bg-gray-300 dark:text-gray-900 rounded-lg"
-                onClick={()=>setSelectedCategory('Women')}
-              >
-                Womens
-              </button>
-              <button
-                type="button"
-                className=" py-1.5 text-xs font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg"
-                onClick={()=>setSelectedCategory('Men')}
-              >
-                Mens
-              </button>
-              <button
-                type="button"
-                className="py-1.5 text-xs font-medium text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded-lg"
-                onClick={()=>setSelectedCategory('Kids')}
-              >
-                Kids
-              </button> */}
+              
               {["Women", "Men", "Kids"].map((category) => (
                 <button
                   key={category}

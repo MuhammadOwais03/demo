@@ -157,7 +157,7 @@ function App() {
 
   useEffect(() => {
     console.log(selectedCategory);
-    console.log("ENTER");
+    
     setDataToDrawer(categoryData[selectedCategory])
     if (selectedSubCategory) {
       const categoryIndex = categoryData[selectedCategory]?.findIndex((item) => item.name === selectedSubCategory);
@@ -185,6 +185,7 @@ function App() {
 
   const closeDrawer = () => {
     const drawer = document.getElementById("drawer-disabled-backdrop");
+    setDrawerOpen(false)
     if (!drawer) return;
     console.log("closing drawer");
     drawer.style.transform = "translateX(-100%)";
@@ -195,7 +196,7 @@ function App() {
     console.log("Hello", screenWidth);
     const drawer = document.getElementById("drawer-disabled-backdrop");
     if (!drawer) return;
-
+    setDrawerOpen(true)
     if (screenWidth > 768) {
       if (drawer.style.transform === "translateX(120%)") {
         // console.log("closing drawer");
