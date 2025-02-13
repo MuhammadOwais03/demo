@@ -6,6 +6,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Drawer from "./components/Drawer/Drawer";
+import Test from "./components/Test/Test";
 
 
 const categoryData = {
@@ -241,6 +242,8 @@ function App() {
         setSelectedCategory={setSelectedCategory}
         selectedCategory={selectedCategory}
       />
+
+      <Test/>
     </>
   );
 }

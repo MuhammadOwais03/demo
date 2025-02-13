@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './Sidebar.css'
 
 const Sidebar = ({
   toggleDrawer,
@@ -22,7 +23,7 @@ const Sidebar = ({
       <>
         {/* Sidebar Container */}
         <div
-          className=" hidden md:block max-w-[200px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-sm"
+          className=" sidebar-container  md:fixed left-0 top-0 max-w-[200px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-sm"
           style={{ borderRight: "2px solid #F2F3F5" }}
         >
           <nav className="flex flex-col justify-between h-full">
