@@ -24,20 +24,20 @@ const DrawerContent = ({ categoryData, openCategory, setOpenCategory, selectedCa
   console.log(selectedCategory);
 
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex h-screen w-full ">
       {/* Sidebar */}
       <div
-        className="w-32 p-2 text-[10px]"
+        className="w-32 py-8 text-md"
         style={{ flex: 1, height: "100vh" }}
       >
-        <h2 className="font-semibold mb-2">Categories</h2>
+        <h2 className="font-semibold mb-2 p-2">Categories</h2>
         <ul>
           {categoryData.map((category, index) => (
             <li
               key={index}
               className={`p-2 cursor-pointer rounded ${
                 selectedCategoryName === category.name
-                  ? "bg-gray-300"
+                  ? "bg-gray-200 text-gray-800"
                   : "hover:bg-gray-200"
               }`}
               onClick={() => {
@@ -55,9 +55,9 @@ const DrawerContent = ({ categoryData, openCategory, setOpenCategory, selectedCa
       <div className="p-2" style={{ flex: 2 }}>
         {selectedCategory ? (
           selectedCategory.subcategories.map((subcategory, index) => (
-            <div key={index} className="border-b">
+            <div key={index} className="border-b border-gray-800">
               <button
-                className="w-full flex justify-between p-3 text-[12px] hover:bg-gray-200"
+                className="w-full flex justify-between p-3 text-md text-gray-800 hover:bg-gray-200"
                 onClick={() => toggleCategory(index)}
               >
                 {subcategory.name}

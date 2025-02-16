@@ -1,1 +1,21 @@
 
+@media (width>=690px) {
+    .mec-collectiion-media{
+     margin-left: 0 !important;
+    }
+}
+
+@media (max-width:450px) {
+    .men-cat{
+        max-width: 380px !important;
+        width: 100% !important;
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }

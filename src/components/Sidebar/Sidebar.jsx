@@ -23,13 +23,13 @@ const Sidebar = ({
       <>
         {/* Sidebar Container */}
         <div
-          className=" sidebar-container  md:fixed left-0 top-0 max-w-[200px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-sm"
+          className=" sidebar-container md:fixed left-0 top-0 max-w-[250px] w-full pl-[2rem] pr-[1.5rem] h-screen border-r-[#F2F3F5] bg-white p-4 pt-[7rem] text-md"
           style={{ borderRight: "2px solid #F2F3F5" }}
         >
           <nav className="flex flex-col justify-between h-full">
             {/* Main Links */}
             <div className="flex flex-col space-y-[1rem]">
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 All
               </a>
               {/* Dropdown: Women */}
@@ -56,7 +56,7 @@ const Sidebar = ({
                 </button>
                 <div className="hidden group-hover:block pl-4 mt-1 space-y-[1rem] pt-2 pb-2">
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -66,7 +66,7 @@ const Sidebar = ({
                     Clothing
                   </a>
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -76,7 +76,7 @@ const Sidebar = ({
                     Footwear
                   </a>
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -114,7 +114,7 @@ const Sidebar = ({
                 </button>
                 <div id="accordion" className="hidden pl-4 mt-1 space-y-1">
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -124,7 +124,7 @@ const Sidebar = ({
                     Clothing
                   </a>
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -134,7 +134,7 @@ const Sidebar = ({
                     Accessories
                   </a>
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -169,7 +169,7 @@ const Sidebar = ({
                 </button>
                 <div className="hidden group-hover:block pl-4 mt-1 space-y-[1rem] pt-2 pb-2">
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -179,7 +179,7 @@ const Sidebar = ({
                     Boys
                   </a>
                   <a
-                    href="#"
+                    
                     className="block text-gray-600"
                     onClick={() => {
                       toggleDrawer(screenWidth);
@@ -190,45 +190,45 @@ const Sidebar = ({
                   </a>
                 </div>
               </div>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Brands
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Top Picks
               </a>
             </div>
             <div className="links flex flex-col space-y-[1rem]">
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Orders
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Rewards
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Wishlist
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Become a Seller
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Blogs
               </a>
-              <a href="#" className="block text-gray-900">
+              <a  className="block text-gray-900">
                 Help Center
               </a>
               {/* Bottom: Sign In / Register */}
               <hr className="my-4 border-gray-300" />
-              <a href="#" className="block font-semibold text-gray-900">
+              <a  className="block font-semibold text-gray-900">
                 Sign In / Register
               </a>
             </div>
           </nav>
         </div>
         {/* Mobile Responsive for sidebar  */}
-        <div className="md:hidden fixed bottom-0 z-50 w-full -translate-x-1/2 bg-white border-t left-1/2 border-gray-200  dark:bg-gray-700 dark:border-gray-600 rounded-2xl">
-          <div className={` ${drawerOpen?"hidden":"block"} w-full border-b border-gray-200 dark:border-gray-600 rounded-2xl`}>
+        <div className="md:hidden fixed bottom-0 z-50 w-full -translate-x-1/2 bg-white shadow-sm left-1/2 ">
+          <div className={` ${drawerOpen?"hidden":"block"} w-full border-b border-gray-200 `}>
             <div
-              className="grid max-w-xs grid-cols-3 gap-1 p-1 mx-auto my-2 bg-gray-100 rounded-2xl dark:bg-gray-600"
+              className="grid max-w-xs grid-cols-3 gap-1 p-1 mx-auto my-2 bg-gray-100 rounded-lg dark:bg-gray-200"
               role="group"
             >
               
@@ -249,7 +249,7 @@ const Sidebar = ({
             <button
               data-tooltip-target="tooltip-home"
               type="button"
-              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-200 group cursor-pointer"
             >
               <svg
                 data-v-50dfb386=""
@@ -272,7 +272,7 @@ const Sidebar = ({
             <button
               data-tooltip-target="tooltip-bookmark"
               type="button"
-              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-200 group cursor-pointer"
               onClick={() => toggleDrawer(screenWidth)}
             >
               <svg
@@ -296,7 +296,7 @@ const Sidebar = ({
             <button
               data-tooltip-target="tooltip-post"
               type="button"
-              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-200 group cursor-pointer"
               onClick={() => toggleDrawer(screenWidth)}
             >
               <svg
@@ -320,7 +320,7 @@ const Sidebar = ({
             <button
               data-tooltip-target="tooltip-search"
               type="button"
-              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-200 group cursor-pointer"
             >
               <svg
                 data-v-50dfb386=""
@@ -342,7 +342,7 @@ const Sidebar = ({
             <button
               data-tooltip-target="tooltip-settings"
               type="button"
-              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+              className="inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-200 group cursor-pointer"
             >
               <svg
                 data-v-50dfb386=""

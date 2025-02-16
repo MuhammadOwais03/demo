@@ -45,11 +45,11 @@ const Drawer = ({
         {/* drawer component */}
         <div
           id="drawer-disabled-backdrop"
-          className={` fixed top-0 ${leftPosition} z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full  w-full md:w-[700px] bg-white dark:bg-gray-800 pt-[7rem]`}
+          className={` fixed top-0 ${leftPosition} z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full  w-full md:w-[700px] bg-white dark:bg-white shadow-sm pt-[7rem]`}
           tabIndex={-1}
           aria-labelledby="drawer-disabled-backdrop-label"
         >
-          <div class="fixed md:hidden top-14 z-50 w-full h-16 max-w-lg -translate-x-1/2  bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+          <div class="fixed md:hidden top-14 z-50 w-full h-16 max-w-lg -translate-x-1/2  bottom-4 left-1/2 dark:bg-gray-300 dark:border-gray-600">
             <div class="flex flex-row gap-5 justify-center items-center h-full max-w-lg grid-cols-5 mx-auto">
               
               
@@ -57,11 +57,11 @@ const Drawer = ({
                 <button
                   key={category}
                   type="button"
-                  className={`inline-flex flex-col items-center justify-center px-3  hover:bg-gray-50 dark:hover:bg-gray-800 group text-sm
+                  className={`inline-flex flex-col items-center justify-center px-3  dark:hover:text-gray-800 cursor-pointer dark:hover:bg-gray-200 group text-md  text-gray-800 
             ${
               selectedCategory === category
                 ? "border-b-2"
-                : "text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700"
+                : "text-gray-900 hover:bg-gray-200 px-2 py-1 dark:hover:rounded-sm rounded-sm dark:text-white dark:hover:bg-gray-100"
             }`}
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -77,7 +77,7 @@ const Drawer = ({
             type="button"
             data-drawer-hide="drawer-disabled-backdrop"
             aria-controls="drawer-disabled-backdrop"
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-15 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white "
+            className="text-gray-800 z-50 bg-transparent hover:bg-gray-200 dark:hover:text-gray-800 rounded-lg text-sm w-8 h-8 absolute top-15 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-300  mt-4 cursor-pointer "
             onClick={() => closeDrawer()}
           >
             <svg
